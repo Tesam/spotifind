@@ -1,0 +1,2 @@
+/Users/techi/Documents/VGV/Techi apps/spotifind/android/app/.cxx/Debug/z5p65334/x86/CMakeFiles/edit_cache.dir
+/Users/techi/Documents/VGV/Techi apps/spotifind/android/app/.cxx/Debug/z5p65334/x86/CMakeFiles/rebuild_cache.dir

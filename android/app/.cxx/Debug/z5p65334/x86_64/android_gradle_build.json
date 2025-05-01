@@ -1,0 +1,28 @@
+{
+  "buildFiles": [
+    "/Users/techi/fvm/versions/3.29.3/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/techi/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/techi/Documents/VGV/Techi apps/spotifind/android/app/.cxx/Debug/z5p65334/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/techi/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/techi/Documents/VGV/Techi apps/spotifind/android/app/.cxx/Debug/z5p65334/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {},
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/techi/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/techi/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": []
+}
