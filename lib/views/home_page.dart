@@ -10,8 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _response = '';
-  RecordingState _recordingState = RecordingState.idle;
+  String response = '';
+  RecordingState recordingState = RecordingState.idle;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +22,18 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FindButton(
-              recordingState: _recordingState,
+              recordingState: recordingState,
               onRecordStart: onRecordStart,
               onRecordStop: (path) {
-                setState(() => _recordingState = RecordingState.stopped);
+                setState(() => recordingState = RecordingState.stopped);
                 onRecordComplete(path);
               },
             ),
             const SizedBox(height: 32),
-            if (_response.isNotEmpty)
+            if (response.isNotEmpty)
               Chip(
                 label: Text(
-                  _response,
+                  response,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -45,8 +45,8 @@ class _HomePageState extends State<HomePage> {
 
   void onRecordStart() {
     setState(() {
-      _recordingState = RecordingState.recording;
-      _response = '';
+      recordingState = RecordingState.recording;
+      response = '';
     });
   }
 
@@ -54,8 +54,8 @@ class _HomePageState extends State<HomePage> {
     if (path != null) {
       final result = await VertexAIService.sendAudio(path);
       setState(() {
-        _response = result ?? 'Musica no encontrada';
-        _recordingState = RecordingState.idle;
+        response = result ?? 'Musica no encontrada';
+        recordingState = RecordingState.idle;
       });
     }
   }
