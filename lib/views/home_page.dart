@@ -10,18 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String _response = 'Press record and play a song!';
+  String _response = '';
   RecordingState _recordingState = RecordingState.idle;
-
-  void _onRecordComplete(String? path) async {
-    if (path != null) {
-      final result = await VertexAIService.sendAudio(path);
-      setState(() {
-        _response = result ?? 'Music not found.';
-        _recordingState = RecordingState.idle;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +23,10 @@ class _HomePageState extends State<HomePage> {
           children: [
             FindButton(
               recordingState: _recordingState,
-              onRecordStart: () =>
-                  setState(() => _recordingState = RecordingState.recording),
+              onRecordStart: onRecordStart,
               onRecordStop: (path) {
                 setState(() => _recordingState = RecordingState.stopped);
-                _onRecordComplete(path);
+                onRecordComplete(path);
               },
             ),
             const SizedBox(height: 32),
@@ -46,5 +35,22 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  void onRecordStart() {
+    setState(() {
+      _recordingState = RecordingState.recording;
+      _response = '';
+    });
+  }
+
+  void onRecordComplete(String? path) async {
+    if (path != null) {
+      final result = await VertexAIService.sendAudio(path);
+      setState(() {
+        _response = result ?? 'Musica no encontrada';
+        _recordingState = RecordingState.idle;
+      });
+    }
   }
 }
