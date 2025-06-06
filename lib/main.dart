@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:spotifind/firebase_options.dart';
-import 'package:spotifind/widgets/widgets.dart';
+import 'package:spotifind/views/views.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,19 +30,6 @@ class MyApp extends StatelessWidget {
         depth: 6,
       ),
       home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: FindButton()),
     );
   }
 }

@@ -2,5 +2,6 @@
   "dart.flutterSdkPath": ".fvm/versions/3.29.3",
   "cSpell.words": [
     "Neumorphic"
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
