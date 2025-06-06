@@ -30,7 +30,13 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const SizedBox(height: 32),
-            Text(_response, textAlign: TextAlign.center),
+            if (_response.isNotEmpty)
+              Chip(
+                label: Text(
+                  _response,
+                  textAlign: TextAlign.center,
+                ),
+              ),
           ],
         ),
       ),
