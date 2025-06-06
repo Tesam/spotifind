@@ -16,7 +16,10 @@ class _HomePageState extends State<HomePage> {
   void _onRecordComplete(String? path) async {
     if (path != null) {
       final result = await VertexAIService.sendAudio(path);
-      setState(() => _response = result ?? 'Music not found.');
+      setState(() {
+        _response = result ?? 'Music not found.';
+        _recordingState = RecordingState.idle;
+      });
     }
   }
 

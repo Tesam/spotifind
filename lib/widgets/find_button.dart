@@ -39,9 +39,19 @@ class _FindButtonState extends State<FindButton>
   @override
   void didUpdateWidget(FindButton oldWidget) {
     super.didUpdateWidget(oldWidget);
+    // if (widget.recordingState == RecordingState.recording) {
+    //   _animationController.repeat();
+    // } else {
+    //   _animationController.stop();
+    //   _animationController.reset();
+    // }
+
     if (widget.recordingState == RecordingState.recording) {
       _animationController.repeat();
-    } else {
+    } else if (widget.recordingState == RecordingState.stopped &&
+        oldWidget.recordingState != RecordingState.stopped) {
+      _animationController.forward();
+    } else if (widget.recordingState == RecordingState.idle) {
       _animationController.stop();
       _animationController.reset();
     }
@@ -64,7 +74,7 @@ class _FindButtonState extends State<FindButton>
     return Stack(
       alignment: Alignment.center,
       children: [
-        if (widget.recordingState == RecordingState.recording)
+        if (widget.recordingState == RecordingState.stopped)
           AnimatedBuilder(
             animation: _animationController,
             builder: (context, child) {
@@ -78,7 +88,9 @@ class _FindButtonState extends State<FindButton>
           style: NeumorphicStyle(
             depth: 3,
             intensity: 2,
-            shape: NeumorphicShape.flat,
+            shape: widget.recordingState == RecordingState.recording
+                ? NeumorphicShape.flat
+                : NeumorphicShape.convex,
             boxShape: const NeumorphicBoxShape.circle(),
             shadowLightColor: const Color(0xFFFFFFFF).withAlpha(80),
           ),
