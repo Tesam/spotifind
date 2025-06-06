@@ -86,7 +86,7 @@ class _FindButtonState extends State<FindButton>
           onPressed: () => toggleRecording(),
           child: Text(
             text,
-            style: const TextStyle(fontSize: 36),
+            style: const TextStyle(fontSize: 30),
           ),
         ),
       ],
