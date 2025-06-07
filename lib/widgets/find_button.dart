@@ -39,19 +39,9 @@ class _FindButtonState extends State<FindButton>
   @override
   void didUpdateWidget(FindButton oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // if (widget.recordingState == RecordingState.recording) {
-    //   _animationController.repeat();
-    // } else {
-    //   _animationController.stop();
-    //   _animationController.reset();
-    // }
-
     if (widget.recordingState == RecordingState.recording) {
       _animationController.repeat();
-    } else if (widget.recordingState == RecordingState.stopped &&
-        oldWidget.recordingState != RecordingState.stopped) {
-      _animationController.forward();
-    } else if (widget.recordingState == RecordingState.idle) {
+    } else {
       _animationController.stop();
       _animationController.reset();
     }
