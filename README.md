@@ -59,7 +59,7 @@ lib/
 ## Dependencies
 
 - [`flutter_sound`](https://pub.dev/packages/flutter_sound): Audio recording
-- [`firebase_vertexai`](https://pub.dev/packages/firebase_vertexai): Vertex AI integration
+- [`firebase_vertexai`](https://pub.dev/packages/firebase_ai): Vertex AI integration
 - [`firebase_core`](https://pub.dev/packages/firebase_core): Firebase core
 - [`permission_handler`](https://pub.dev/packages/permission_handler): Microphone permissions
 - [`flutter_neumorphic_plus`](https://pub.dev/packages/flutter_neumorphic_plus): UI styling
